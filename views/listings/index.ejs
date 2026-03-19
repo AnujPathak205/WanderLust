@@ -1,0 +1,120 @@
+<% layout("layouts/boilerplate") %>
+
+<style>
+    #filters{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .filter{
+        /* text-align: center; */
+        margin-right: 1.2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        opacity: 0.6;
+    }
+
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+    .filter p{
+        font-size: 0.8rem;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+</style>
+
+
+<div class="container-fluid border-top border-bottom py-2 ">
+  <div class="d-flex overflow-auto gap-3 px-2" id="filters">
+
+    <a href="/listings?category=Room" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-bed"></i>
+      <p class="mb-0 small">Rooms</p>
+    </a>
+
+    <a href="/listings?category=Flat" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-house"></i>
+      <p class="mb-0 small">Flat</p>
+    </a>
+
+    <a href="/listings?category=Mountain" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-mountain"></i>
+      <p class="mb-0 small">Mountain</p>
+    </a>
+
+    <a href="/listings?category=Castle" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-brands fa-fort-awesome"></i>
+      <p class="mb-0 small">Castles</p>
+    </a>
+
+    <a href="/listings?category=Beach" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-water"></i>
+      <p class="mb-0 small">Beach</p>
+    </a>
+
+    <a href="/listings?category=Amazing+pool" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-person-swimming"></i>
+      <p class="mb-0 small">Pools</p>
+    </a>
+
+    <a href="/listings?category=Lake" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-water"></i>
+      <p class="mb-0 small">Lake</p>
+    </a>
+
+    <a href="/listings?category=Camping" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-campground"></i>
+      <p class="mb-0 small">Camping</p>
+    </a>
+
+    <a href="/listings?category=Farm" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-cow"></i>
+      <p class="mb-0 small">Farms</p>
+    </a>
+
+    <a href="/listings?category=Arctic" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-snowflake"></i>
+      <p class="mb-0 small">Arctic</p>
+    </a>
+
+    <a href="/listings?category=Desert" class="text-center  text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-sun-plant-wilt"></i>
+      <p class="mb-0 small">Desert</p>
+    </a>
+
+    <a href="/listings?category=Amazing+view" class="text-center text-decoration-none flex-shrink-0 filter">
+      <i class="fa-solid fa-arrows-to-eye"></i>
+      <p class="mb-0 small">Views</p>
+    </a>
+
+  </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of listings){ %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+            <div class="card listing-card">
+                <% if(listing.image.length > 0){ %>
+                    <img src="<%= listing.image[0].url %>" class="card-img-top" alt="..." style="height: 15rem;">
+                <% }else{ %>
+                    <img src="../../default_image.jpg" class="card-img-top"  style="height: 15rem;">
+                <% } %>
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= listing.title %></b>
+                        <br>
+                        &#8377; <%= listing.price.toLocaleString("en-IN") %>/night
+                    </p>
+                </div>
+            </div>
+        </a>
+    <% } %>
+</div>

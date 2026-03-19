@@ -1,0 +1,207 @@
+/* Global */
+
+body{
+  font-family: "Lugrasimo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+/* Navbar */
+
+.navbar{
+  min-height: 4rem;
+  background-color: white;
+}
+
+.fa-compass{
+  color: #fe424d;
+  font-size: 1.8rem;
+}
+
+.nav-link{
+  color: #222222 !important;
+}
+
+.navbar-nav{
+  align-items: center;
+}
+
+
+/* Search */
+
+.input{
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+  width: 100%;
+}
+
+.btn-search{
+  background-color: #fe424d;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+  white-space: nowrap;
+  border: none;
+}
+
+.btn-search:hover{
+  background-color: #fe424d;
+  color: #fff;
+}
+
+.btn-search i{
+  margin-right: 0.4rem;
+}
+
+
+/* Footer */
+
+.f-info{
+  background-color: #ebebeb;
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-links a{
+  text-decoration: none;
+  color: #222222;
+  margin-left: 1.2rem;
+}
+
+.f-info-links a:hover{
+  text-decoration: underline;
+}
+
+
+/* Listing Cards */
+
+.listing-card{
+  border: none !important;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+
+.listing-link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-img-top{
+  border-radius: 1rem !important;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-body{
+  padding: 0 !important;
+}
+
+.card-img-overlay{
+  opacity: 0;
+}
+
+.card-img-overlay:hover{
+  opacity: 0.1;
+  background-color: white;
+}
+
+
+/* New Listing Page */
+
+.add-btn{
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+
+/* Show Page */
+
+.show-img{
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+.btns{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 992px){
+
+  .navbar-nav{
+    text-align: center;
+  }
+
+  form.d-flex{
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+}
+
+
+@media (max-width: 768px){
+
+  .card-img-top{
+    height: 200px;
+  }
+
+  .show-img{
+    height: 30vh;
+  }
+
+  .btns{
+    flex-direction: column;
+  }
+
+  .btn-search span{
+    display: none;
+  }
+
+  .btn-search{
+    padding: 0.4rem 0.7rem;
+  }
+
+}
+
+
+@media (max-width: 480px){
+
+  .fa-compass{
+    font-size: 1.5rem;
+  }
+
+  .input{
+    font-size: 0.9rem;
+  }
+
+  .card-img-top{
+    height: 180px;
+  }
+
+}

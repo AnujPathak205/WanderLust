@@ -1,0 +1,86 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+    <br>
+    <div class="row">
+        <div class="mb-3 col-8 offset-2">
+            <h4>Edit</h4 >
+            <form method="POST" 
+                  action="/listings/<%= listing._id %>?_method=PUT" 
+                  novalidate 
+                  class="needs-validation"
+                  enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" id="title" class="form-control" placeholder="enter title" value="<%= listing.title %>" type="text" required>
+                    <div class="valid-feedback">Title looks good!</div>
+                    <div class="invalid-feedback">Please enter a title!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Description</label>
+                    <textarea name="listing[description]" id="form-label" class="form-control" placeholder="enter description" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Please enter a sort description</div>
+                </div>
+
+                <div>
+                    Original Image <br>
+                    <img height="100vmin"  src="<%= (listing.image.length)?listing.image[0].url :""%>" alt="NOT FOUND">
+                </div>
+
+                <br>
+
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload new listing image</label>
+                    <input name="image" type="file" id="image" class="form-control" placeholder="enter image url" >
+                </div>
+
+               
+
+                <div class="row">
+                    <div class="mb-3 col-md-5">
+                        <label for="location" class="form-label">Location</label>
+                        <input name="listing[location]" id="location" class="form-control"  placeholder="enter location" value="<%= listing.location %>" type="text" required>
+                        <div class="invalid-feedback">Location should be valid!</div>
+                    </div>
+
+                    <div class="mb-3 col-md-7">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" id="country" class="form-control" placeholder="enter country" value="<%= listing.country %>" type="text" required>
+                        <div class="invalid-feedback">Country name should be valid!</div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="mb-3 col-md-5">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" id="price" class="form-control" placeholder="enter price" value="<%= listing.price %>" type="number" required min="0">
+                        <div class="invalid-feedback">Price should be valid!</div>
+                    </div>
+
+                    <div class="mb-3 col-md-7">
+                        <label for="category" class="form-label">Category</label>
+                        <select name="listing[category]" class="form-select" aria-label="Default select example">
+                            <option <%= listing.category == "Room"?"selected":"" %> value="Room">Room</option>
+                            <option <%= listing.category == "Flat"?"selected":"" %> value="Flat">Flat</option>
+                            <option <%= listing.category == "Mountain"?"selected":"" %> value="Mountain">Mountain</option>
+                            <option <%= listing.category == "Castle"?"selected":"" %> value="Castle">Castle</option>
+                            <option <%= listing.category == "Historical"?"selected":"" %> value="Historical">Historical</option>
+                            <option <%= listing.category == "Camping"?"selected":"" %> value="Camping">Camping</option>
+                            <option <%= listing.category == "Amazing pool"?"selected":"" %> value="Amazing pool">Amazing pool</option>
+                            <option <%= listing.category == "Beach"?"selected":"" %> value="Beach">Beach</option>
+                            <option <%= listing.category == "Lake"?"selected":"" %> value="Lake">Lake</option>
+                            <option <%= listing.category == "Desert"?"selected":"" %> value="Desert">Desert</option>
+                            <option <%= listing.category == "Arctic"?"selected":"" %> value="Arctic">Arctic</option>
+                            <option <%= listing.category == "Farm"?"selected":"" %> value="Farm">Farm</option>
+                            <option <%= listing.category == "Amazing view"?"selected":"" %> value="Amazing view">Amazing view</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn btn-dark add-btn">Edit</button>
+            </form>
+        </div>
+    </div>
+</body>
